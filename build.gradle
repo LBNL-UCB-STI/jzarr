@@ -56,19 +56,17 @@ publishing {
             artifactId 'jzarr'
             version version
             pom.withXml {
-                def node = asNode()
-                node.appendNode('licenses') {
-                    license {
-                        name 'The Apache Software License, Version 2.0'
-                        url 'https://www.apache.org/licenses/LICENSE-2.0.txt'
-                        distribution 'repo'
-                    }
-                }
-                node.appendNode('scm') {
-                    connection 'scm:git:git://github.com/LBNL-UCB-STI/jzarr.git'
-                    developerConnection 'scm:git:ssh://github.com:LBNL-UCB-STI/jzarr.git'
-                    url 'https://github.com/LBNL-UCB-STI/jzarr'
-                }
+                def root = asNode()
+                def licensesNode = root.appendNode('licenses')
+                def licenseNode = licensesNode.appendNode('license')
+                licenseNode.appendNode('name', 'The Apache Software License, Version 2.0')
+                licenseNode.appendNode('url', 'https://www.apache.org/licenses/LICENSE-2.0.txt')
+                licenseNode.appendNode('distribution', 'repo')
+
+                def scmNode = root.appendNode('scm')
+                scmNode.appendNode('connection', 'scm:git:git://github.com/LBNL-UCB-STI/jzarr.git')
+                scmNode.appendNode('developerConnection', 'scm:git:ssh://github.com/LBNL-UCB-STI/jzarr.git')
+                scmNode.appendNode('url', 'https://github.com/LBNL-UCB-STI/jzarr')
             }
             artifact tasks.named('sourcesJar')
             artifact tasks.named('javadocJar')
