@@ -227,7 +227,7 @@ public class ZarrArray {
 
     public void write(Object data, int[] dataShape, int[] offset) throws IOException, InvalidRangeException {
         final int[][] chunkIndices = ZarrUtils.computeChunkIndices(_shape, _chunks, dataShape, offset);
-        ucar.ma2.DataType dataType = ucar.ma2.DataType.getType(data.getClass().getComponentType(), false);
+        ucar.ma2.DataType dataType = ucar.ma2.DataType.getType(String.valueOf(data.getClass().getComponentType()));
         final Array source = Array.factory(dataType, dataShape, data);
 
         for (int[] chunkIndex : chunkIndices) {

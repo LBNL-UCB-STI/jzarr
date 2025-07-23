@@ -1,5 +1,5 @@
 group 'com.github.LBNL-UCB-STI'
-version 'v0.4.7'
+version 'v0.4.8'
 
 apply plugin: 'java'
 apply plugin: 'maven-publish'
@@ -39,6 +39,7 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.7.1'
     implementation 'org.lasersonlab:jblosc:1.0.1'
     implementation "edu.ucar:cdm-core:${netcdfJavaVersion}"
+    implementation group: 'org.lasersonlab', name: 'jblosc', version: '1.0.1'
     runtimeOnly "org.slf4j:slf4j-jdk14:${slf4jVersion}"
     testImplementation 'com.google.code.gson:gson:2.8.9'
     testImplementation 'org.hamcrest:hamcrest-all:1.3'
