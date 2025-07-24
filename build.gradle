@@ -1,5 +1,5 @@
 group 'com.github.LBNL-UCB-STI'
-version 'v0.4.9'
+version 'v0.4.10'
 
 apply plugin: 'java'
 apply plugin: 'maven-publish'
